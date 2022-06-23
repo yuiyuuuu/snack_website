@@ -179,7 +179,12 @@ export default function Checkout() {
                       }}
                     >
                       {cart.map((cartItem) => {
-                        return <CartItemCheckOut itemInfo={cartItem} />;
+                        return (
+                          <CartItemCheckOut
+                            itemInfo={cartItem}
+                            key={cartItem.id}
+                          />
+                        );
                       })}
                     </List>
                   </CardContent>
