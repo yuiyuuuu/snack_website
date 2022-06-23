@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -9,17 +9,17 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-} from '@mui/material';
-import { _createProduct } from '../../store/Snacks';
+} from "@mui/material";
+import { _createProduct } from "../../store/Snacks";
 
 export default function AdminPageProductCreateForm() {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [desc, setDesc] = useState('');
-  const [price, setPrice] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [photoURL, setPhotoURL] = useState('');
-  const [productCategoryId, setProductCategoryId] = useState('');
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [price, setPrice] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
+  const [productCategoryId, setProductCategoryId] = useState("");
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -43,7 +43,7 @@ export default function AdminPageProductCreateForm() {
       productCategoryId,
     };
     dispatch(_createProduct(newSnack));
-    history.push('/adminpage');
+    history.push("/adminpage");
     handleClose();
   };
 

@@ -48804,12 +48804,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function AdminPageProductCreateForm() {
   const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const [name, setName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [desc, setDesc] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [price, setPrice] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [quantity, setQuantity] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [photoURL, setPhotoURL] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [productCategoryId, setProductCategoryId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [name, setName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [desc, setDesc] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [price, setPrice] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [quantity, setQuantity] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [photoURL, setPhotoURL] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [productCategoryId, setProductCategoryId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
   const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   const history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useHistory)();
 
@@ -48832,7 +48832,7 @@ function AdminPageProductCreateForm() {
       productCategoryId
     };
     dispatch((0,_store_Snacks__WEBPACK_IMPORTED_MODULE_2__._createProduct)(newSnack));
-    history.push('/adminpage');
+    history.push("/adminpage");
     handleClose();
   };
 
