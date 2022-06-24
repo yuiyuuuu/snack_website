@@ -6,8 +6,6 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
-    "babel-loader": "^8.2.2",
-    "dotenv-webpack": "^7.1.0",
     "@chec/commerce.js": "^2.3.0-beta1",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -21,11 +19,14 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.27.2",
+    "babel-loader": "^8.2.2",
     "bcrypt": "^5.0.0",
+    "dotenv-webpack": "^7.1.0",
     "express": "^4.16.4",
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
+    "netlify-lambda": "^2.0.15",
     "nodemon": "^2.0.16",
     "pg": "^8.5.1",
     "react": "^17.0.0",
@@ -42,6 +43,7 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^2.0.1",
     "sequelize": "^6.21.0",
+    "serverless-http": "^3.0.1",
     "stripe": "^9.9.0",
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
@@ -55,7 +57,6 @@
     "eject": "react-scripts eject",
     "seed": "node script/seed.js",
     "start:dev2": "node server",
-    "start:dev": "npm run build:dev & npm run start-server",
     "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client"
   },
   "eslintConfig": {
@@ -75,5 +76,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3002"
 }

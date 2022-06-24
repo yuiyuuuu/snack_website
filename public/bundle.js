@@ -52798,7 +52798,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-const GET_USER = 'GET_USER';
+const GET_USER = "GET_USER";
 const fetchUser = user => ({
   type: GET_USER,
   user
@@ -52806,6 +52806,7 @@ const fetchUser = user => ({
 const fetchAUser = id => {
   return async dispatch => {
     try {
+      if (!id || id === undefined) return;
       const {
         data
       } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/api/users/${id}`);

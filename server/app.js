@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
+const serverless = require("serverless-http");
 module.exports = app;
 
 const stripe = require("stripe")(
@@ -88,3 +89,5 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).send(err.message || "Internal server error.");
 });
+
+module.exports.handler = serverless(app);
