@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
-const ALL_PRODUCTS = 'ALL_PRODUCTS';
-const CREATE_PRODUCT = 'CREATE_PRODUCT';
-const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
-const DELETE_PRODUCT = 'DELETE_PRODUCT';
+const ALL_PRODUCTS = "ALL_PRODUCTS";
+const CREATE_PRODUCT = "CREATE_PRODUCT";
+const UPDATE_PRODUCT = "UPDATE_PRODUCT";
+const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 export const fetchAllProducts = (products) => ({
   type: ALL_PRODUCTS,
@@ -28,7 +28,7 @@ export const deleteProduct = (product) => ({
 export const fetchProducts = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get('/api/products');
+      const { data } = await axios.get("/.netlify/functions/api/products");
       dispatch(fetchAllProducts(data));
     } catch (error) {
       console.error(error);
@@ -39,7 +39,10 @@ export const fetchProducts = () => {
 export const _createProduct = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`/api/products/`, product);
+      const { data } = await axios.post(
+        `/.netlify/functions/api/products/`,
+        product
+      );
       dispatch(createProduct(data));
     } catch (error) {
       console.error(error);
@@ -50,7 +53,10 @@ export const _createProduct = (product) => {
 export const _updateProduct = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`/api/products/${product.id}`, product);
+      const { data } = await axios.put(
+        `/.netlify/functions/api/products/${product.id}`,
+        product
+      );
       dispatch(updateProduct(data));
     } catch (error) {
       console.error(error);
@@ -61,7 +67,9 @@ export const _updateProduct = (product) => {
 export const _deleteProduct = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete(`/api/products/${id}`);
+      const { data } = await axios.delete(
+        `/.netlify/functions/api/products/${id}`
+      );
       dispatch(deleteProduct(data));
     } catch (error) {
       console.error(error);

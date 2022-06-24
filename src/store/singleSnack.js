@@ -10,7 +10,9 @@ export const setSingleSnack = (snack) => ({
 export const fetchSingleSnack = (snackId) => {
   return async (dispatch) => {
     try {
-      const { data: snack } = await axios.get(`/api/products/${snackId}`);
+      const { data: snack } = await axios.get(
+        `/.netlify/functions/api/products/${snackId}`
+      );
       dispatch(setSingleSnack(snack));
     } catch (error) {
       console.error(error);

@@ -30,7 +30,7 @@ export const deleteCart = (product) => ({
 export const fetchCart = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/users/${id}`);
+      const { data } = await axios.get(`/.netlify/functions/api/users/${id}`);
       dispatch(currentCart(data.shopping_session.cart_items));
     } catch (error) {
       console.error(error);
@@ -57,7 +57,7 @@ export const updateCart = (product) => {
   return async (dispatch) => {
     try {
       const { data: updatedSnack } = await axios.put(
-        `/api/products/${product.productId}/cartItem`,
+        `/.netlify/functions/api/products/${product.productId}/cartItem`,
         product
       );
       dispatch(setUpdateCart(updatedSnack));

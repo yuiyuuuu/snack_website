@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const ALL_ORDERS = 'ALL_ORDERS';
+const ALL_ORDERS = "ALL_ORDERS";
 
 export const fetchAllOrders = (orders) => ({
   type: ALL_ORDERS,
@@ -10,7 +10,9 @@ export const fetchAllOrders = (orders) => ({
 export const fetchOrders = (userId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/orders/${userId}`);
+      const { data } = await axios.get(
+        `/.netlify/functions/api/orders/${userId}`
+      );
       dispatch(fetchAllOrders(data));
     } catch (error) {
       console.error(error);

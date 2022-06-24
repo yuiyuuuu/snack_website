@@ -52171,10 +52171,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-const ALL_PRODUCTS = 'ALL_PRODUCTS';
-const CREATE_PRODUCT = 'CREATE_PRODUCT';
-const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
-const DELETE_PRODUCT = 'DELETE_PRODUCT';
+const ALL_PRODUCTS = "ALL_PRODUCTS";
+const CREATE_PRODUCT = "CREATE_PRODUCT";
+const UPDATE_PRODUCT = "UPDATE_PRODUCT";
+const DELETE_PRODUCT = "DELETE_PRODUCT";
 const fetchAllProducts = products => ({
   type: ALL_PRODUCTS,
   products
@@ -52196,7 +52196,7 @@ const fetchProducts = () => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/products');
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get("/.netlify/functions/api/products");
       dispatch(fetchAllProducts(data));
     } catch (error) {
       console.error(error);
@@ -52208,7 +52208,7 @@ const _createProduct = product => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/api/products/`, product);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/.netlify/functions/api/products/`, product);
       dispatch(createProduct(data));
     } catch (error) {
       console.error(error);
@@ -52220,7 +52220,7 @@ const _updateProduct = product => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/api/products/${product.id}`, product);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/.netlify/functions/api/products/${product.id}`, product);
       dispatch(updateProduct(data));
     } catch (error) {
       console.error(error);
@@ -52232,7 +52232,7 @@ const _deleteProduct = id => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/api/products/${id}`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/.netlify/functions/api/products/${id}`);
       dispatch(deleteProduct(data));
     } catch (error) {
       console.error(error);
@@ -52279,12 +52279,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../history */ "./src/history.js");
 
 
-const TOKEN = 'token';
+const TOKEN = "token";
 /**
  * ACTION TYPES
  */
 
-const SET_AUTH = 'SET_AUTH';
+const SET_AUTH = "SET_AUTH";
 /**
  * ACTION CREATORS
  */
@@ -52302,7 +52302,7 @@ const me = () => async dispatch => {
   const token = window.localStorage.getItem(TOKEN);
 
   if (token) {
-    const res = await axios__WEBPACK_IMPORTED_MODULE_0___default().get('/auth/me', {
+    const res = await axios__WEBPACK_IMPORTED_MODULE_0___default().get("/.netlify/functions/auth/me", {
       headers: {
         authorization: token
       }
@@ -52312,7 +52312,7 @@ const me = () => async dispatch => {
 };
 const authenticate = (email, password, method) => async dispatch => {
   try {
-    const res = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/auth/${method}`, {
+    const res = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/.netlify/functions/auth/${method}`, {
       email,
       password
     });
@@ -52326,7 +52326,7 @@ const authenticate = (email, password, method) => async dispatch => {
 };
 const logout = () => {
   window.localStorage.removeItem(TOKEN);
-  _history__WEBPACK_IMPORTED_MODULE_1__["default"].push('/login');
+  _history__WEBPACK_IMPORTED_MODULE_1__["default"].push("/login");
   return {
     type: SET_AUTH,
     auth: {}
@@ -52397,7 +52397,7 @@ const fetchCart = id => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/api/users/${id}`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/.netlify/functions/api/users/${id}`);
       dispatch(currentCart(data.shopping_session.cart_items));
     } catch (error) {
       console.error(error);
@@ -52421,7 +52421,7 @@ const updateCart = product => {
     try {
       const {
         data: updatedSnack
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/api/products/${product.productId}/cartItem`, product);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/.netlify/functions/api/products/${product.productId}/cartItem`, product);
       dispatch(setUpdateCart(updatedSnack));
     } catch (error) {
       console.error(error);
@@ -52526,7 +52526,7 @@ const _createOrderDetail = detailTotal => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/api/orders/${detailTotal.userId}`, detailTotal);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/.netlify/functions/api/orders/${detailTotal.userId}`, detailTotal);
       dispatch(createOrderDetail(data));
     } catch (error) {
       console.error(error);
@@ -52538,7 +52538,7 @@ const _createOrderItem = obj => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/api/orders/${obj.itemId}/orderItem`, obj);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/.netlify/functions/api/orders/${obj.itemId}/orderItem`, obj);
       dispatch(createOrderItem(data));
     } catch (error) {
       console.error(error);
@@ -52550,7 +52550,7 @@ const _updateProductQuantity = product => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/api/products/${product.id}`, product);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/.netlify/functions/api/products/${product.id}`, product);
       dispatch(updateProductQuantity(data));
     } catch (error) {
       console.error(error);
@@ -52562,7 +52562,7 @@ const _deleteCartItem = cartItemId => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/api/products/${cartItemId}/cartItem`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/.netlify/functions/apiproducts/${cartItemId}/cartItem`);
       dispatch(deleteCartItem(data));
     } catch (error) {
       console.error(error);
@@ -52574,7 +52574,7 @@ const _deleteShoppingSession = shoppingSessionId => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/api/orders/${shoppingSessionId}/shoppingsession`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/.netlify/functions/api/orders/${shoppingSessionId}/shoppingsession`);
       dispatch(deleteShoppingSession(data));
     } catch (error) {
       console.error(error);
@@ -52586,7 +52586,7 @@ const _createshoppingSession = userId => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/api/orders/${userId}/shoppingsession`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().post(`/.netlify/functions/api/orders/${userId}/shoppingsession`);
       dispatch(createshoppingSession(data));
     } catch (error) {
       console.error(error);
@@ -52708,7 +52708,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-const ALL_ORDERS = 'ALL_ORDERS';
+const ALL_ORDERS = "ALL_ORDERS";
 const fetchAllOrders = orders => ({
   type: ALL_ORDERS,
   orders
@@ -52718,7 +52718,7 @@ const fetchOrders = userId => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/api/orders/${userId}`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/.netlify/functions/api/orders/${userId}`);
       dispatch(fetchAllOrders(data));
     } catch (error) {
       console.error(error);
@@ -52763,7 +52763,7 @@ const fetchSingleSnack = snackId => {
     try {
       const {
         data: snack
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/api/products/${snackId}`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/.netlify/functions/api/products/${snackId}`);
       dispatch(setSingleSnack(snack));
     } catch (error) {
       console.error(error);
@@ -52809,7 +52809,7 @@ const fetchAUser = id => {
       if (!id || id === undefined) return;
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/api/users/${id}`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/.netlify/functions/api/users/${id}`);
       dispatch(fetchUser(data));
     } catch (error) {
       console.error(error);
@@ -52850,11 +52850,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-const TOKEN = 'token';
-const GET_ALL_USERS = 'GET_ALL_USERS';
-const UPDATE_USER = 'UPDATE_USER';
-const DELETE_USER = 'DELETE_USER';
-const UPDATE_ADMIN_USER = 'UPDATE_ADMIN_USER';
+const TOKEN = "token";
+const GET_ALL_USERS = "GET_ALL_USERS";
+const UPDATE_USER = "UPDATE_USER";
+const DELETE_USER = "DELETE_USER";
+const UPDATE_ADMIN_USER = "UPDATE_ADMIN_USER";
 const getAllUsers = users => ({
   type: GET_ALL_USERS,
   users
@@ -52877,7 +52877,7 @@ const fetchAllUsers = () => {
       const token = window.localStorage.getItem(TOKEN);
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/api/users`, {
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().get(`/.netlify/functions/api/users`, {
         headers: {
           authorization: token
         }
@@ -52893,7 +52893,7 @@ const _updateUser = user => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/api/users/${user.id}`, user);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/.netlify/functions/api/users/${user.id}`, user);
       dispatch(updateUser(data));
     } catch (error) {
       console.error(error);
@@ -52905,7 +52905,7 @@ const _updateAdminUser = id => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/api/users/${id}/admin`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default().put(`/.netlify/functions/api/users/${id}/admin`);
       dispatch(updateAdminUser(data));
     } catch (error) {
       console.error(error);
@@ -52917,7 +52917,7 @@ const _deleteUser = id => {
     try {
       const {
         data
-      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/api/users/${id}`);
+      } = await axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](`/.netlify/functions/api/users/${id}`);
       dispatch(deleteUser(data));
     } catch (error) {
       console.error(error);

@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-const TOKEN = 'token';
-const GET_ALL_USERS = 'GET_ALL_USERS';
-const UPDATE_USER = 'UPDATE_USER';
-const DELETE_USER = 'DELETE_USER';
-const UPDATE_ADMIN_USER = 'UPDATE_ADMIN_USER';
+const TOKEN = "token";
+const GET_ALL_USERS = "GET_ALL_USERS";
+const UPDATE_USER = "UPDATE_USER";
+const DELETE_USER = "DELETE_USER";
+const UPDATE_ADMIN_USER = "UPDATE_ADMIN_USER";
 
 export const getAllUsers = (users) => ({
   type: GET_ALL_USERS,
@@ -30,7 +30,7 @@ export const fetchAllUsers = () => {
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem(TOKEN);
-      const { data } = await axios.get(`/api/users`, {
+      const { data } = await axios.get(`/.netlify/functions/api/users`, {
         headers: {
           authorization: token,
         },
@@ -45,7 +45,10 @@ export const fetchAllUsers = () => {
 export const _updateUser = (user) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`/api/users/${user.id}`, user);
+      const { data } = await axios.put(
+        `/.netlify/functions/api/users/${user.id}`,
+        user
+      );
       dispatch(updateUser(data));
     } catch (error) {
       console.error(error);
@@ -56,7 +59,9 @@ export const _updateUser = (user) => {
 export const _updateAdminUser = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`/api/users/${id}/admin`);
+      const { data } = await axios.put(
+        `/.netlify/functions/api/users/${id}/admin`
+      );
       dispatch(updateAdminUser(data));
     } catch (error) {
       console.error(error);
@@ -67,7 +72,9 @@ export const _updateAdminUser = (id) => {
 export const _deleteUser = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete(`/api/users/${id}`);
+      const { data } = await axios.delete(
+        `/.netlify/functions/api/users/${id}`
+      );
       dispatch(deleteUser(data));
     } catch (error) {
       console.error(error);

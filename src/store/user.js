@@ -11,7 +11,7 @@ export const fetchAUser = (id) => {
   return async (dispatch) => {
     try {
       if (!id || id === undefined) return;
-      const { data } = await axios.get(`/api/users/${id}`);
+      const { data } = await axios.get(`/.netlify/functions/api/users/${id}`);
       dispatch(fetchUser(data));
     } catch (error) {
       console.error(error);

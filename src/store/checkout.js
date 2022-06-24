@@ -41,7 +41,7 @@ export const _createOrderDetail = (detailTotal) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `/api/orders/${detailTotal.userId}`,
+        `/.netlify/functions/api/orders/${detailTotal.userId}`,
         detailTotal
       );
       dispatch(createOrderDetail(data));
@@ -55,7 +55,7 @@ export const _createOrderItem = (obj) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `/api/orders/${obj.itemId}/orderItem`,
+        `/.netlify/functions/api/orders/${obj.itemId}/orderItem`,
         obj
       );
       dispatch(createOrderItem(data));
@@ -68,7 +68,10 @@ export const _createOrderItem = (obj) => {
 export const _updateProductQuantity = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`/api/products/${product.id}`, product);
+      const { data } = await axios.put(
+        `/.netlify/functions/api/products/${product.id}`,
+        product
+      );
       dispatch(updateProductQuantity(data));
     } catch (error) {
       console.error(error);
@@ -80,7 +83,7 @@ export const _deleteCartItem = (cartItemId) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(
-        `/api/products/${cartItemId}/cartItem`
+        `/.netlify/functions/apiproducts/${cartItemId}/cartItem`
       );
       dispatch(deleteCartItem(data));
     } catch (error) {
@@ -93,7 +96,7 @@ export const _deleteShoppingSession = (shoppingSessionId) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(
-        `/api/orders/${shoppingSessionId}/shoppingsession`
+        `/.netlify/functions/api/orders/${shoppingSessionId}/shoppingsession`
       );
       dispatch(deleteShoppingSession(data));
     } catch (error) {
@@ -106,7 +109,7 @@ export const _createshoppingSession = (userId) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `/api/orders/${userId}/shoppingsession`
+        `/.netlify/functions/api/orders/${userId}/shoppingsession`
       );
       dispatch(createshoppingSession(data));
     } catch (error) {
