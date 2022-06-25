@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@astrajs/collections": "^0.3.4",
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
@@ -50,9 +51,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "start:dev": "npm run build:dev & npm run start-server & createdb fed",
+    "start:dev": "npm run build:dev & npm run start-server",
     "build:dev": "npm run build -- --watch --mode=development",
-    "start": "react-scripts start",
+    "start": "npm run build:dev & npm run start-server",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "seed": "node script/seed.js",
@@ -76,6 +77,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:3002"
+  }
 }
