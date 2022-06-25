@@ -1,10 +1,6 @@
 const Sequelize = require("sequelize");
 const fs = require("fs");
 const pkg = require("../../package.json");
-// let ssl = null;
-// if (process.env.NODE_ENV === "development") {
-//   ssl = { rejectUnauthorized: false };
-// }
 
 const postgresUri =
   "postgres://avnadmin:AVNS_lQWgatDcyFJwjcjxX3o@bullseyestore-yingsonyu-f68d.aivencloud.com:24026/defaultdb?sslmode=require";
@@ -14,22 +10,9 @@ conn.search = conn.query = "";
 const databaseName =
   pkg.name + (process.env.NODE_ENV === "test" ? "-test" : "");
 
-// const config = {
-//   logging: false,
-// };
-
 if (process.env.LOGGING === "true") {
   delete config.logging;
 }
-
-// //https://stackoverflow.com/questions/61254851/heroku-postgres-sequelize-no-pg-hba-conf-entry-for-host
-// if (process.env.DATABASE_URL) {
-//   config.dialectOptions = {
-//     ssl: {
-//       rejectUnauthorized: false,
-//     },
-//   };
-// }
 
 const config = {
   connectionString: conn.href,
@@ -41,17 +24,20 @@ const config = {
   dialect: "postgres",
 };
 
-const db = new Sequelize(
-  // process.env.DATABASE_URL ||
-  config
-);
+const db = new Sequelize(config);
 
-try {
-  async () => {
-    await db.authenticate();
-    console.log("successfully connected");
-  };
-} catch (error) {
-  console.log("connection refused");
-}
 module.exports = db;
+
+// //https://stackoverflow.com/questions/61254851/heroku-postgres-sequelize-no-pg-hba-conf-entry-for-host
+// if (process.env.DATABASE_URL) {
+//   config.dialectOptions = {
+//     ssl: {
+//       rejectUnauthorized: false,
+//     },
+//   };
+// }
+
+// let ssl = null;
+// if (process.env.NODE_ENV === "development") {
+//   ssl = { rejectUnauthorized: false };
+// }
