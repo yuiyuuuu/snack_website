@@ -24,7 +24,9 @@ const config = {
   dialect: "postgres",
 };
 
-const db = new Sequelize(config);
+console.log(config);
+
+const db = new Sequelize(conn.href, config);
 
 module.exports = db;
 
